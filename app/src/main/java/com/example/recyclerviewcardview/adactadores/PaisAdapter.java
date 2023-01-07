@@ -24,7 +24,6 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioV
 
     @Override
     public UsuarioViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(Ctx);
         View view = inflater.inflate(R.layout.item_usuario, null);
         return new UsuarioViewHolder(view);
@@ -37,26 +36,21 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioV
         holder.textViewName.setText(usuario.getNombre());
         holder.textViewMail.setText(usuario.getEmail());
         holder.textViewURLAvatar.setText(usuario.getWebsite());
-        Glide.with(Ctx)
-                .load(usuario.getUrlavatar())
-                .into(holder.imageView);
+        Glide.with(Ctx).load(usuario.getUrlavatar()).into(holder.imageView);
     }
 
-
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return lstUsuarios.size();
     }
 
-
     class UsuarioViewHolder extends RecyclerView.ViewHolder {
-
         TextView textViewName, textViewURLAvatar, textViewMail;
         ImageView imageView;
 
         public UsuarioViewHolder(View itemView) {
             super(itemView);
-
             textViewName= itemView.findViewById(R.id.txtName);
             textViewURLAvatar = itemView.findViewById(R.id.txtAvatar);
             textViewMail = itemView.findViewById(R.id.txtMail);
